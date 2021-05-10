@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 let users = [];
 
 export const getUsers = (req, res) => {
-    console.log(`Users in the database: ${users}`);
+    console.log(`Usuarios de la base de datos: ${users}`);
 
     res.send(users);
 }
@@ -13,7 +13,7 @@ export const createUser = (req, res) => {
 
     users.push({...user, id: uuid()});
     
-    console.log(`User [${user.username}] added to the database.`);
+    console.log(`Usuario [${user.username}] agregado a la base de datos.`);
 };
 
 export const getUser = (req, res) => {
@@ -21,7 +21,7 @@ export const getUser = (req, res) => {
 };
 
 export const deleteUser = (req, res) => { 
-    console.log(`user with id ${req.params.id} has been deleted`);
+    console.log(`Usuario con id ${req.params.id} ha sido eliminado`);
     
     users = users.filter((user) => user.id !== req.params.id);
 };
@@ -32,5 +32,5 @@ export const updateUser =  (req,res) => {
     user.username = req.body.username;
     user.age = req.body.age;
 
-    console.log(`username has been updated to ${req.body.username}.age has been updated to ${req.body.age}`)
+    console.log(`Username ha sido actualizado a: ${req.body.username}. Año ha sido actualizado a: ${req.body.age}`)
 };
